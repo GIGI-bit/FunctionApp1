@@ -26,7 +26,7 @@ namespace FunctionApp1
         }
 
         [Function("Function1")]
-        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post",Route ="email")] HttpRequestData req)
+        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req)
         {
             string smtpSettingsJson = Environment.GetEnvironmentVariable("SMTP_SETTINGS");
             var smtpSettings = JsonSerializer.Deserialize<SmtpSettings>(smtpSettingsJson);
